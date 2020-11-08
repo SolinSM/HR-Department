@@ -1,2 +1,3 @@
-# 12factor-PHP
-Project coding 12 factor using PHP
+# Dreams Restaurant
+
+This is project creates for master course using 12-factors in PHP
