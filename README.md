@@ -2,7 +2,8 @@
 
 This is project creates for master course using 12-factors in PHP
 
-You can find our project in folder called "SES-HR-Department"
+You can find our project in folder called "SES-HR-Department".
+
 And in folder called "related_files" you can find ( MySQL Database , Postman json file )
 
 ## Technical used in SES HR Department
