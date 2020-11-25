@@ -1,0 +1,188 @@
+{
+	"info": {
+		"_postman_id": "0e93b3f0-3774-48ff-a2fc-db67b15d7a57",
+		"name": "SES HR Department",
+		"description": "This for using 12 factor logic in our project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Employee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "f_name",
+							"value": "Safa",
+							"type": "text"
+						},
+						{
+							"key": "l_name",
+							"value": "SM",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "safa@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "emp_job_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/employee/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employee",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Employee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "f_name",
+							"value": "Safa",
+							"type": "text"
+						},
+						{
+							"key": "l_name",
+							"value": "Mosa",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "safa@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "emp_job_id",
+							"value": "5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/employee/update",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employee",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show List Employee with details",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "emp_id",
+							"value": "66",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/employee/show",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employee",
+						"show"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Employee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "hotmail",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/employee/search",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employee",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete Employee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "emp_id",
+							"value": "4",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/employee/delete",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employee",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
