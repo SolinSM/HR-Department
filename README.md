@@ -1,4 +1,4 @@
-# Dreams Restaurant
+# SES HR Department
 
 This is project creates for master course using 12-factors in PHP
 
