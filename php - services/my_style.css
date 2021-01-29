@@ -1,0 +1,101 @@
+fieldset{
+	width: 540px;
+	margin: auto;
+	border-radius:8px;
+}
+
+legend{
+	padding: 2px 20px;
+	background-color: #fffdf0;
+	border-radius: 5px;
+	font-weight: bold;
+}
+
+td{
+	padding: 5px 0px;
+}
+
+.td_label{
+	width: 18%;
+}
+
+.col_between{
+	width: 20px;
+}
+
+input[type="text"], [type="email"], [type="number"], select{
+	width: 160px;
+	height: 22px;
+}
+
+input[type="submit"]{
+	float: right;
+	border-radius: 20px;
+	width: 120px;
+	height: 25px;
+	background-color: #fff;
+	border: 1.5px solid #f28a90;
+}
+
+
+/************* Form 1 ****************/
+#add-form{
+	background-color: #fae6ff;
+	border: 2px solid #83278f;
+}
+
+#add-form input[type="submit"]{
+	border: 1.5px solid #83278f;
+}
+
+#add-form input[type="submit"]:hover{
+	background-color: #c979d3;
+	border-style: groove;
+}
+
+#add-form legend{
+	color: #83278f;
+	border: 1.5px solid #83278f;
+}
+
+
+/************* Form 2 ****************/
+#edit-form{
+	background-color: #ffe6e6;
+	border: 2px solid #f19096;
+}
+
+#edit-form input[type="submit"]{
+	border: 1.5px solid #f19096;
+}
+
+#edit-form input[type="submit"]:hover{
+	background-color: #e9818f;
+	border-style: groove;
+}
+
+#edit-form legend{
+	color: #d90000;
+	border: 1.5px solid #f19096;
+}
+
+
+/************* Form 3 ***************/
+#mix-form{
+	background-color: #e6f7ff;
+	border: 2px solid #90c4f1;
+}
+
+#mix-form input[type="submit"]{
+	border: 1.5px solid #90c4f1;
+}
+
+#mix-form input[type="submit"]:hover{
+	background-color: #74c6ed;
+	border-style: groove;
+}
+
+#mix-form legend{
+	color: #005aa7;
+	border: 1.5px solid #90c4f1;
+}
