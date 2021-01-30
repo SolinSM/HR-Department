@@ -20,13 +20,15 @@ And in folder called "related_files" you can find ( MySQL Database , Postman jso
 5. Edit employee Information service
 6. Delete Employee service
 
-## Links
-1. Add Employee        |   /POST   | /employee/add
-2. Edit Employee       |   /POST   | /employee/update
-3. Employee Info       |   /POST   | /employee/show  + param.
-4. Search for Employee |   /POST   | /employee/search
-5. Delete Employee     |   /POST   | /employee/delete
-6. All Employee        |   /GET    | /employee/show
+## APIs
+| Service             | Method        | Link                      |
+| ------------------- |:-------------:| -------------------------:|
+| Add Employee        |   /POST       | /employee/add             |
+| Edit Employee       |   /POST       | /employee/update          |
+| Employee Info       |   /POST       | /employee/show  + param.  |
+| Search for Employee |   /POST       | /employee/search          |
+| Delete Employee     |   /POST       | /employee/delete          |
+| All Employee        |   /GET        | /employee/show            |
 
 ## Context Diagram
 ![Context Diagram](context_diagram.png)
