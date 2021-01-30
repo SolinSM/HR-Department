@@ -22,7 +22,7 @@ And in folder called "related_files" you can find ( MySQL Database , Postman jso
 
 ## APIs
 | Service             | Method        | Link                      |
-| ------------------- |:-------------:| -------------------------:|
+| ------------------- |:-------------:| :-------------------------|
 | Add Employee        |   /POST       | /employee/add             |
 | Edit Employee       |   /POST       | /employee/update          |
 | Employee Info       |   /POST       | /employee/show  + param.  |
