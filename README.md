@@ -1,13 +1,12 @@
 # SES HR Department
 
 ## Introduction:
-This is project creates for master course using 12-factors in PHP.
-You can find our project in folder called "SES-HR-Department".
-In "php - services" folder, you can find same services but in pure php.
+This project is created for a master course using 12-factors in PHP. 
+You can find our project in a folder called "SES-HR-Department". 
+In the "php - services" folder, you can find the same services but in pure php. 
 And in folder called "related_files" you can find ( MySQL Database , Postman json file )
 
-SES HR department is a project contains (add / edit / delete / search / show list / show info) for employees, where those services is an  API. The main aim is to walk through 12-factor and implement them in our project. Implement "SES HR Department.postman_collection.json" file to Postman to view API services & results.
-We start by creating an Online Google Document to find all information. And then learn about Git vs Github with differences between them, important keywords in GitHuh, create an account in GitHub, interact with it.deal with Desktop GitHub.
+SES HR department is a project containing (add / edit / delete / search / show list / show info) for employees, where those services are an API. The main aim is to walk through 12-factor and implement them in our project. Implement "SES HR Department.postman_collection.json" file to Postman to view API services & results. We start by creating an Online Google Document to find all information. And then learn about Git vs Github with differences between them, important keywords in GitHuh, create an account in GitHub, interact with it.deal with Desktop GitHub.
 
 
 ## Technical used in SES HR Department
@@ -20,7 +19,7 @@ The techniques used to develop the API are Codeigniter framework using PHP scrip
 | Kanban Project            | To manage services between team members and also manage work on repo.         |
 | GitHub                    | To Upload our work on it and create a repository (first factor)               |
 | Desktop GitHub            | To help us to upload, send pull request, see any changes on the code          |
-| Docker                    | Helps to implement many factors with out project                              |
+| Docker                    | Helps to implement many factors with our project                              |
 
 
 ## Our Services
