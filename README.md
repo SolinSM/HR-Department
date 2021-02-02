@@ -1,16 +1,27 @@
 # SES HR Department
 
-This is project creates for master course using 12-factors in PHP
-
+## Introduction:
+This is project creates for master course using 12-factors in PHP.
 You can find our project in folder called "SES-HR-Department".
-
+In "php - services" folder, you can find same services but in pure php.
 And in folder called "related_files" you can find ( MySQL Database , Postman json file )
 
+SES HR department is a project contains (add / edit / delete / search / show list / show info) for employees, where those services is an  API. The main aim is to walk through 12-factor and implement them in our project. Implement "SES HR Department.postman_collection.json" file to Postman to view API services & results.
+We start by creating an Online Google Document to find all information. And then learn about Git vs Github with differences between them, important keywords in GitHuh, create an account in GitHub, interact with it.deal with Desktop GitHub.
+
+
 ## Technical used in SES HR Department
-1. CodeIgniter 4 Framework with PHP
-2. MySQL DB in phpMyAdmin
-3. Postman for run services
-4. Docker
+The techniques used to develop the API are Codeigniter framework using PHP script Language with RESTFUL API. Connecting it with PHPMyAdmin Database (MySQL) and using the kanban project of GitHub. In addition, using Docker.
+| Technical                 | Description                                          |
+| ------------------------- | -----------------------------------------------------|
+| CodeIgniter 4 Framework   | It supports REST APIs and we create 1 class containing 5 functions, where each function is represented as a service (This is a way to define services if they are related to the same object as an employee).                   |
+| MySQL Database            | PHPMyAdmin, put in code we use MySQLi & PDO          |
+| Postman                   | Used to view APIs services & results                 |
+| Kanban Project            | To manage services between team members and also manage work on repo.         |
+| GitHub                    | To Upload our work on it and create a repository (first factor)               |
+| Desktop GitHub            | To help us to upload, send pull request, see any changes on the code          |
+| Docker                    | Helps to implement many factors with out project                              |
+
 
 ## Our Services
 1. Show Employee List service
