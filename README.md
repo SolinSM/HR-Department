@@ -13,7 +13,7 @@ SES HR department is a project containing (add / edit / delete / search / show l
 The techniques used to develop the API are Codeigniter framework using PHP script Language with RESTFUL API. Connecting it with PHPMyAdmin Database (MySQL) and using the kanban project of GitHub. In addition, using Docker.
 | Technical                 | Description                                          |
 | ------------------------- | -----------------------------------------------------|
-| CodeIgniter 4 Framework   | It supports REST APIs and we create 1 class containing 5 functions, where each function is represented as a service (This is a way to define services if they are related to the same object as an employee).                   |
+| CodeIgniter 4 Framework   | It powerful PHP framework with a very small footprint. It supports REST APIs and we create 1 class containing 5 functions, where each function is represented as a service (This is a way to define services if they are related to the same object as an employee).  Link : https://codeigniter.com/                  |
 | MySQL Database            | PHPMyAdmin, put in code we use MySQLi & PDO          |
 | Postman                   | Used to view APIs services & results                 |
 | Kanban Project            | To manage services between team members and also manage work on repo.         |
