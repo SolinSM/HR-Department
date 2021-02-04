@@ -49,8 +49,8 @@ The techniques used to develop the API are Codeigniter framework using PHP scrip
 
 ## 12-Factor:
 **1. Codebase**
->We create a single repository on GitHub for our team where all we work in it (same repo). 
-
+>One codebase tracked in revision control, many deploys ✔
+>We have no particular problems here, it’s just a matter of development workflow. We can track our app code in Git: the master branch is deployed to production, while >all the development and testing is made under separate branches.
 
 
 **2. Dependencies**
