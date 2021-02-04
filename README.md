@@ -46,10 +46,12 @@ The techniques used to develop the API are Codeigniter framework using PHP scrip
 
 ## 12-Factor:
 **1. Codebase**
+
 We create a single repository on GitHub for our team where all we work in it (same repo). 
 
 
 **2. Dependencies**
+
 In Codeigniter the rest api is added as a library to the system.
 Docker_php to allow php commands in docker
 Docker_phpMyAdmin for DB commands in docker
@@ -57,17 +59,21 @@ Docker_MySQL for mySQL queries command in docker
 
 
 **3. Config**
+
 We create composer.json for codeigniter or file docker (DockerFile).
 Dockerfile used to help and applied docker commands 
 
 
 **4. Backing services**
+
 * We create 6 services as shown in the previous topic and it is APIs. 
 * Also we add some dependencies with is as backig services to the docker.
 * As example of third parity (adding some commands and files to Codeigniter project).
 
 
 **5. Build, release, Run**
+
+Markup :  `ouer code command line`
 
 
 **6. Processes**
@@ -80,6 +86,7 @@ Dockerfile used to help and applied docker commands
 
 
 **9. Disposability**
+
 By using Docker and K8s this allows the system to be fast startup & graceful shutdown. 
 **Fast Startup:** 
 The time starts from executing the launch command until the process is up and ready to receive requests. (Minimize processes startup time)
@@ -89,6 +96,7 @@ The time starts from executing the launch command until the process is up and re
 
 
 **10. Dev/prod parity**
+
 "Keep all deploys similar as you can"
 It helps to minimize the gap in time, employee, tool, and deploys (between development and production).
 
