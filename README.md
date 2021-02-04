@@ -108,7 +108,6 @@ The time starts from executing the launch command until the process is up and re
 **10. Dev/prod parity**
 
 "Keep all deploys similar as you can"
-
 It helps to minimize the gap in time, employee, tool, and deploys (between development and production).
 
 
