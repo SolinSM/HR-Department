@@ -76,16 +76,27 @@ The techniques used to develop the API are Codeigniter framework using PHP scrip
 
 **5. Build, release, Run**
 >`ouer code command line`
+ Deployment tools typically offer release management tools, most notably the ability to roll back to a previous release.
+>An approach is to store releases in a subdirectory named releases, where the current release is a symlink to the latest release binary. This makes it easy to quickly roll back to a previous release.
 
 
 
 **6. Processes**
+>Twelve-factor processes are stateless and share-nothing. Any data that needs to persist must be stored in a stateful backing service, typically a database.
+
+>A twelve-factor app never assumes that anything cached in memory or on disk will be available on a future request, because chances are high that a future request will be served by a different process
 
 
 **7. Port binding**
+ >IP sockets (especially TCP/IP sockets) are a mechanism allowing communication between processes over the network. In some cases, you can use TCP/IP sockets to talk with >processes running on the same computer (by using the loopback interface, a.k.a. 127.0.0.1).
+
+ >A Unix socket is an inter-process communication mechanism that allows bidirectional data exchange between processes running on the same machine
 
 
 **8. Concurrency**
+>They should rely on the operating system's process manager (such as systemd) to manage output streams, respond to crashed processes, and handle user initiated restarts and shutdowns.
+
+> This makes adding more concurrency a simple and reliable operation.
 
 
 **9. Disposability**
