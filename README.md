@@ -49,8 +49,7 @@ The techniques used to develop the API are Codeigniter framework using PHP scrip
 
 ## 12-Factor:
 **1. Codebase**
-
-We create a single repository on GitHub for our team where all we work in it (same repo). 
+>We create a single repository on GitHub for our team where all we work in it (same repo). 
 
 
 
