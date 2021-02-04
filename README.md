@@ -20,6 +20,9 @@ The techniques used to develop the API are Codeigniter framework using PHP scrip
 | GitHub                    | To Upload our work on it and create a repository (first factor)               |
 | Desktop GitHub            | To help us to upload, send pull request, see any changes on the code          |
 | Docker                    | Helps to implement many factors with our project                              |
+| Docker Compose            | It is a tool for defining and running multi-container Docker applications     |
+| Yamel                     |         |
+| Kubernetus                |         |
 
 
 ## Our Services
@@ -98,7 +101,7 @@ By using Docker and K8s this allows the system to be fast startup & graceful shu
 
 The time starts from executing the launch command until the process is up and ready to receive requests. (Minimize processes startup time)
 
-**Graceful Shutdown: **
+**Graceful Shutdown:**
 
 * **For Web Process:** Stop listening to the service port (refusing any new requests & finish it, then exiting). This means HTTP requests should be short.
 
