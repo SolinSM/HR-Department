@@ -90,8 +90,10 @@ The techniques used to develop the API are Codeigniter framework using PHP scrip
 
 **9. Disposability**
 > By using Docker and K8s this allows the system to be fast startup & graceful shutdown. 
+
 >  **Fast Startup:** 
->  The time starts from executing the launch command until the process is up and ready to receive requests. (Minimize processes startup time)
+>  The time starts from executing the launch command until the process is up and ready to receive requests (Minimize processes startup time).
+
 >  **Graceful Shutdown:**
 >    * **For Web Process:** Stop listening to the service port (refusing any new requests & finish it, then exiting). This means HTTP requests should be short.
 >    * **For Worker Process:** Return the current job to a work queue manually. When a worker disconnects, queuing systems return the job automatically to the queue. Jobs can be reentrant, by wrapping the results in a transaction (to allow rollbacks)
