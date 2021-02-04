@@ -75,10 +75,9 @@ The techniques used to develop the API are Codeigniter framework using PHP scrip
 
 
 **5. Build, release, Run**
->`ouer code command line`
- Deployment tools typically offer release management tools, most notably the ability to roll back to a previous release.
+>Deployment tools typically offer release management tools, most notably the ability to roll back to a previous release.
 >An approach is to store releases in a subdirectory named releases, where the current release is a symlink to the latest release binary. This makes it easy to quickly roll back to a previous release.
-
+>`ouer code command line`
 
 
 **6. Processes**
