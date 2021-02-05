@@ -181,7 +181,9 @@ Runs the application by launching a set of the app’s processes against a selec
 
 
 **12. Admin processes**
- > In codeigniter we can create a dashboard to manage connection to databases, services, and environments. But this need many services and handles to do this, so for better is to use K8s to mange them.
+ > In codeigniter we can create a dashboard to manage connection to databases, services, and environments, but this need many services and handles to do this. 
+ 
+ > So for better is to use K8s Or Heroku to mange them.
 
 
-## Note : See other images in the link [images file](related_files/image/)
+## Note : See other images in the link [images file](related_files/image)
