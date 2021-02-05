@@ -86,7 +86,6 @@ Just like factor #3, this is more a design task than a technical limit. We need 
 
 
 
-
 **5. Build, release, Run**
 >Deployment tools typically offer release management tools, most notably the ability to roll back to a previous release.
 >An approach is to store releases in a subdirectory named releases, where the current release is a symlink to the latest release binary. This makes it easy to quickly roll back to a previous release.
@@ -110,7 +109,6 @@ Runs the application by launching a set of the app’s processes against a selec
 > PHP processes are already stateless and shared-nothing, although sometimes we tend to use the built-in file storage for sessions, and this is not advisable on a cloud platform.
 
 > We can avoid this pitfall by session handlers:
-![Context Diagram](related_files/image/context_diagram.png)
 ![Session Config](related_files/image/session_config.JPG)
 
 
