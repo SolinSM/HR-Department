@@ -49,6 +49,9 @@ The techniques used to develop the API are Codeigniter framework using PHP scrip
 ## API Documents using Postman
 ![Postman](related_files/image/postman.JPG) 
 
+## Result Running
+![result](related_files/image/running.JPG)
+
 ## Context Diagram
 ![Context Diagram](related_files/image/context_diagram.png)
 
