@@ -1,9 +1,16 @@
 <?php
 	 class config{
-	private $host ="192.168.1.113";
+	/*private $host ="192.168.1.113";
 	private $dbName = "my_company";
 	private $user = "root";
 	private $pass = "12345";
+	*/
+	private $host =getenv('DB_HOST');
+	private $dbName =getenv('DB_NAME');
+	private $user =getenv('DB_USER');
+	private $pass =getenv('DB_PASS');
+	
+	
 	public function connect(){
 	try{ 
 		$conn = new PDO( 'mysql:host='.$this->host. '; dbname='. $this->dbName, $this->user, $this->pass);
