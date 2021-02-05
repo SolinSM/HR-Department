@@ -79,7 +79,7 @@ With the new version of the web we will be working on using
 
 > In codeigniter there is a files for config of DB, connect to host, and routes. And to deal with, we used `.env file`
 
->* For **pure php** you can use `getenv function` as image:
+> For **pure php** you can use `getenv function` as image:
 ![connication](related_files/image/conn.PNG)
 
 
