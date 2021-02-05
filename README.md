@@ -59,12 +59,16 @@ The techniques used to develop the API are Codeigniter framework using PHP scrip
 >* Explicitly declare and isolate dependencies
 >* We got this too, we have Composer for PHP dependencies.
 >* In PHP you can use composer, which basically allows you to create a list of dependencies that needs to be downloaded and installed during the deployment of the application.
-
+>* We create composer.json for codeigniter or file docker (DockerFile).
+>* Dockerfile used to help and applied docker commands 
 
 
 **3. Config**
->We create composer.json for codeigniter or file docker (DockerFile).
->Dockerfile used to help and applied docker commands 
+> In Codeigniter, the rest of the api is added as a system library.
+> There is a file named Konfig that works on the connection with the Databases, which is MySQL
+With the new version of the web we will be working on using
+
+
 
 
 
