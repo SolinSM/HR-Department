@@ -92,6 +92,8 @@ With the new version of the web we will be working on using
 
 > Just like factor #3, this is more a design task than a technical limit. We need to design our application in a way that both local and remote resources are treated equal and can be swappable.
 
+> Example for service:
+![Show List Employees and details](related_files/image/service1.png)
 
 **5. Build, release, Run**
 >Deployment tools typically offer release management tools, most notably the ability to roll back to a previous release.
@@ -113,9 +115,7 @@ Runs the application by launching a set of the app’s processes against a selec
 
 > A twelve-factor app never assumes that anything cached in memory or on disk will be available on a future request, because chances are high that a future request will be served by a different process
 
-> PHP processes are already stateless and shared-nothing, although sometimes we tend to use the built-in file storage for sessions, and this is not advisable on a cloud platform.
-
-> We can avoid this pitfall by session handlers:
+> PHP processes are already stateless and shared-nothing, although sometimes we tend to use the built-in file storage for sessions, and this is not advisable on a cloud platform. We can avoid this pitfall by session handlers:
 ![Session Config](related_files/image/session_config.JPG)
 
 
