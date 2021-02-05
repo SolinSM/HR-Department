@@ -1,0 +1,40 @@
+version: '3.1'
+
+services:
+    web:
+      build: 
+       image: nginx:alpine
+       ports:
+           - "8181:80"
+       volumes:
+           - ./SES-HR-Department:/var/www/html
+           - ./conf.d:/etc/nginx/config.php
+           - /etc/localtime:/etc/localtime
+       networks:
+           - nginxphp
+
+     php:
+       image: php:7.1.11-fpm-alpine
+       volumes:
+          - ./SES-HR-Department:/var/www/html
+       expose:
+           - 9000
+       networks:
+           - nginxphp
+
+networks:
+     nginxphp:
+        
+        
+        
+    db: 
+        image: mysql
+        volumes:
+            - ./db_data:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: 12345 
+            MYSQL_DATABASE: my_company
+        ports:
+            - 3306:3306
+        
+        
