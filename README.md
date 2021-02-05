@@ -78,26 +78,44 @@ With the new version of the web we will be working on using
 >* We create 6 services as shown in the previous topic and it is APIs. 
 >* Also we add some dependencies with is as backig services to the docker.
 >* As example of third parity (adding some commands and files to Codeigniter project).
+>* Here we’re talking about databases (MySQL), queue services, SMTP servers and caching systems. In some cases, even the filesystem should be considered a backing service, for example when running on Heroku, where the local filesystem is reset at each deployment.
+
+Just like factor #3, this is more a design task than a technical limit. We need to design our application in a way that both local and remote resources are treated equal and can be swappable.
+![connication](conn.png)
+
+
 
 
 
 **5. Build, release, Run**
 >Deployment tools typically offer release management tools, most notably the ability to roll back to a previous release.
 >An approach is to store releases in a subdirectory named releases, where the current release is a symlink to the latest release binary. This makes it easy to quickly roll back to a previous release.
->`ouer code command line`
+>In PHP the run stage is usually delegated to an Apache or Nginx server (and we test both) that may need to be restarted or reloaded on each deploy . 
 
+>* Build
+Converts a code repo into an executable bundle. we’ve already do this with our Dockerfile.
+
+>* Release
+Takes the build and combines it with the current configuration. In a purely docker based system this can be split between the Build (versioning and defaults) and Run (current config) stages. However systems like Heroku and Deis have a seperate step for this which they handle internally.
+
+>* Run
+Runs the application by launching a set of the app’s processes against a selected release. In a docker based system this is simply the $ docker run command which can be called via a deploy script, or a init script (systemd/runit)
 
 **6. Processes**
 >Twelve-factor processes are stateless and share-nothing. Any data that needs to persist must be stored in a stateful backing service, typically a database.
 
 >A twelve-factor app never assumes that anything cached in memory or on disk will be available on a future request, because chances are high that a future request will be served by a different process
+>* PHP processes are already stateless and shared-nothing, although sometimes we tend to use the built-in file storage for sessions, and this is not advisable on a cloud platform.
+
+We can avoid this pitfall by session handlers:
 
 
 **7. Port binding**
  >IP sockets (especially TCP/IP sockets) are a mechanism allowing communication between processes over the network. In some cases, you can use TCP/IP sockets to talk with >processes running on the same computer (by using the loopback interface, a.k.a. 127.0.0.1).
 
  >A Unix socket is an inter-process communication mechanism that allows bidirectional data exchange between processes running on the same machine
-
+ > App exposing 80 and 443 port and the Default dev port is 8181
+ 
 
 **8. Concurrency**
 >They should rely on the operating system's process manager (such as systemd) to manage output streams, respond to crashed processes, and handle user initiated restarts and shutdowns.
