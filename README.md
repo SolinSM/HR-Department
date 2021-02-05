@@ -22,8 +22,7 @@ The techniques used to develop the API are Codeigniter framework using PHP scrip
 | Docker                    | Helps to implement many factors with our project                              |
 | Docker Compose            | It is a tool for defining and running multi-container Docker applications     |
 | Composer.json             | It allows you to create a list of dependencies that needs to be downloaded and installed during the deployment of the application  |
-| Yamel                     |         |
-| Kubernetus                |         |
+| Kubernetus                | It is orchistration containers tool, used for manage, scaling , and deployment our services |
 
 
 
@@ -46,6 +45,8 @@ The techniques used to develop the API are Codeigniter framework using PHP scrip
 | Delete Employee     |   /POST       | /employee/delete          |
 | All Employee        |   /GET        | /employee/show            |
 
+
+## API Documents using Postman
 ![Postman](related_files/image/postman.JPG) 
 
 ## Context Diagram
@@ -56,8 +57,8 @@ The techniques used to develop the API are Codeigniter framework using PHP scrip
 **1. Codebase**
 > One codebase tracked in revision control, many deploys ✔
 > We have no particular problems here, it’s just a matter of development workflow. 
-> We can track our app code in Git: the master branch is deployed to production, while 
-> all the development and testing is made under separate branches.
+> We can track our app code in Git: the master branch is deployed to production, while all the development and testing is made under separate branches.
+> In this factor as we see from above files, we define the repository, Configuration, environments `.env`, `DockerFile`, services.
 
 
 **2. Dependencies**
@@ -65,9 +66,9 @@ The techniques used to develop the API are Codeigniter framework using PHP scrip
 >* We add Docker_php to allow php commands in docker
 >* We add Docker_phpMyAdmin for DB commands in docker
 >* We add Docker_MySQL for mySQL queries command in docker
->* There is a file named config that works on the connection with the Databases, which is MySQL
-With the new version of the web we will be working on using
-
+>* There is a file named config that works on the connection with the Databases, which is MySQL 
+>* With the new version of the web we will be working on using
+>* All dependencies were defined in `composer.json` file and `Dockerfile`.
 
 
 **3. Config**
@@ -77,7 +78,7 @@ With the new version of the web we will be working on using
 
 > In PHP you can use composer, which basically allows you to create a list of dependencies that needs to be downloaded and installed during the deployment of the application. So, we create `composer.json` for codeigniter and file docker `DockerFile` which used to help and applied docker commands. 
 
-> In codeigniter there is a files for config of DB, connect to host, and routes. And to deal with, we used `.env file`
+> In codeigniter there is a files for config of DB, connect to host, and routes. And to deal with, we used `.env file`. This help us to define environments by using Environment Variables to store some configuration and used it to change from environment as dev to prod. 
 
 > For **pure php** you can use `getenv function` as image:
 ![connication](related_files/image/conn.PNG)
@@ -95,6 +96,7 @@ With the new version of the web we will be working on using
 > Example for service:
 ![Show List Employees and details](related_files/image/service1.png)
 
+
 **5. Build, release, Run**
 >Deployment tools typically offer release management tools, most notably the ability to roll back to a previous release.
 >An approach is to store releases in a subdirectory named releases, where the current release is a symlink to the latest release binary. This makes it easy to quickly roll back to a previous release.
@@ -111,12 +113,13 @@ Runs the application by launching a set of the app’s processes against a selec
 
 
 **6. Processes**
-> Twelve-factor processes are stateless and share-nothing. Any data that needs to persist must be stored in a stateful backing service, typically a database.
-
-> A twelve-factor app never assumes that anything cached in memory or on disk will be available on a future request, because chances are high that a future request will be served by a different process
+> Twelve-factor processes are stateless and share-nothing. Any data that needs to persist must be stored in a stateful backing service, typically a database. A twelve-factor app never assumes that anything cached in memory or on disk will be available on a future request, because chances are high that a future request will be served by a different process
 
 > PHP processes are already stateless and shared-nothing, although sometimes we tend to use the built-in file storage for sessions, and this is not advisable on a cloud platform. We can avoid this pitfall by session handlers:
-![Session Config](related_files/image/session_config.JPG)
+![connication](related_files/image/conn.PNG)
+
+> We can solve this by `volumes` that created in `docker-composer.yml`, which used to store the data of the container to used in Factor#9.
+![Docker Image](related_files/image/dockerimage.PNG)
 
 
 **7. Port binding**
@@ -126,18 +129,20 @@ Runs the application by launching a set of the app’s processes against a selec
  > A Unix socket is an inter-process communication mechanism that allows bidirectional data exchange between processes running on the same machine
  > App exposing 80 and 443 port and the Default dev port is 8181
  > Well, this is a bit tricky because PHP has been designed to use a web server. Some providers, like Heroku, address the issue by embedding the web server into the application as a dependency, through their PHP Buildpack that runs Apache or Nginx and we are using both in foreground mode.
->* Export services via port binding
 
-Your application should appear to be completely self contained and not require runtime injection of a webserver. Thankfully this is pretty easy to fake in a docker container as any extra processes are isolated in the container and effectively invisible to the outside.
+ > Through docker command for file, we can choose or change port to any port we want.
+ 
+ > * Export services via port binding
+ > Your application should appear to be completely self contained and not require runtime injection of a webserver. Thankfully this is pretty easy to fake in a docker container as any extra processes are isolated in the container and effectively invisible to the outside.
+ > It is still preferable to use a native language based web library such as jetty (java) or flask (python) but for languages like PHP using apache or nginx is ok.
+ > Docker itself takes care of the port binding by use of the -p option on the command line. It’s useful to register the port and host IP to somewhere ( etcd ) to allow for loadbalancers and other services to easily locate your application.
 
-It is still preferable to use a native language based web library such as jetty (java) or flask (python) but for languages like PHP using apache or nginx is ok.
 
-Docker itself takes care of the port binding by use of the -p option on the command line. It’s useful to register the port and host IP to somewhere ( etcd ) to allow for loadbalancers and other services to easily locate your application.
 
 **8. Concurrency**
 > They should rely on the operating system's process manager (such as systemd) to manage output streams, respond to crashed processes, and handle user initiated restarts and shutdowns. This makes adding more concurrency a simple and reliable operation.
 
-> It also be means for scalability on service and we handeal this by using Kubernetes that can determine when to scale out and scale down reffered to users requests.
+> It also be means for scalability traffic on service and we handle this by using Kubernetes that can determine when to scale out and scale down reffered to users requests. This happened automatically scaled on the resource consumption.
 
 > **Scale out via the process model**
 
@@ -146,6 +151,7 @@ Docker itself takes care of the port binding by use of the -p option on the comm
 
 **9. Disposability**
 > By using Docker and K8s this allows the system to be fast startup & graceful shutdown. 
+> This mean if any container/service is not working/stoped/have errors, the K8s stoped it graceful and start another one but same to it (image) of it or we can restart it to work again. When any crash/stop happened to it, the `volumes` helped to show last stored data (that we talked about in Factor#6) to not show errors and in this time the K8s automatically solved issue as previous discuss.
 
 >  **Fast Startup:** 
 >  The time starts from executing the launch command until the process is up and ready to receive requests (Minimize processes startup time).
@@ -158,13 +164,18 @@ Docker itself takes care of the port binding by use of the -p option on the comm
 **10. Dev/prod parity**
 > "Keep all deploys similar as you can"
 > It helps to minimize the gap in time, employee, tool, and deploys (between development and production).
+> In codeigniter we can use this from `.env` which allow us to switch between environment (dev\stage\prod).
+> And also by using docker with images we solve this. 
+
 
 
 **11. Logs**
-
+ > Here in the codeigniter we have function to add logs to the database for the interactive with our services. and also there is a logs in php apache for actions happend before reached to our services.
+ > So we here we show all this logs in one page to handle them from one place by creating a service for this. also the K8s help us to show and mange them.
 
 
 **12. Admin processes**
+ > In codeigniter we can create a dashboard to manage connection to databases, services, and environments. But this need many services and handles to do this, so for better is to use K8s to mange them.
 
 
-
+## Note : See other images in the link [images file](related_files/image/)
