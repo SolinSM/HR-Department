@@ -46,7 +46,7 @@ The techniques used to develop the API are Codeigniter framework using PHP scrip
 | All Employee        |   /GET        | /employee/show            |
 
 ## Context Diagram
-![Context Diagram](context_diagram.png)
+![Context Diagram](related_files/image/context_diagram.png)
 
 
 ## 12-Factor:
