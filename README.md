@@ -135,13 +135,13 @@ It is still preferable to use a native language based web library such as jetty 
 Docker itself takes care of the port binding by use of the -p option on the command line. It’s useful to register the port and host IP to somewhere ( etcd ) to allow for loadbalancers and other services to easily locate your application.
 
 **8. Concurrency**
-> They should rely on the operating system's process manager (such as systemd) to manage output streams, respond to crashed processes, and handle user initiated restarts and shutdowns.
+> They should rely on the operating system's process manager (such as systemd) to manage output streams, respond to crashed processes, and handle user initiated restarts and shutdowns. This makes adding more concurrency a simple and reliable operation.
 
-> This makes adding more concurrency a simple and reliable operation.
+> It also be means for scalability on service and we handeal this by using Kubernetes that can determine when to scale out and scale down reffered to users requests.
 
-> * Scale out via the process model
+> **Scale out via the process model**
 
-Similar to factor #7, the dependency from a web server makes PHP different. However, every request/response is handled by its own process so we can safely assume that PHP uses the process model.
+> Similar to factor #7, the dependency from a web server makes PHP different. However, every request/response is handled by its own process so we can safely assume that PHP uses the process model.
 
 
 **9. Disposability**
