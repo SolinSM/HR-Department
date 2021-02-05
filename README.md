@@ -81,7 +81,7 @@ With the new version of the web we will be working on using
 >* Here we’re talking about databases (MySQL), queue services, SMTP servers and caching systems. In some cases, even the filesystem should be considered a backing service, for example when running on Heroku, where the local filesystem is reset at each deployment.
 
 Just like factor #3, this is more a design task than a technical limit. We need to design our application in a way that both local and remote resources are treated equal and can be swappable.
-![connication](conn.png)
+![connication](related_files/image/conn.png)
 
 
 
@@ -101,13 +101,17 @@ Takes the build and combines it with the current configuration. In a purely dock
 >* Run
 Runs the application by launching a set of the app’s processes against a selected release. In a docker based system this is simply the $ docker run command which can be called via a deploy script, or a init script (systemd/runit)
 
+
 **6. Processes**
->Twelve-factor processes are stateless and share-nothing. Any data that needs to persist must be stored in a stateful backing service, typically a database.
+> Twelve-factor processes are stateless and share-nothing. Any data that needs to persist must be stored in a stateful backing service, typically a database.
 
->A twelve-factor app never assumes that anything cached in memory or on disk will be available on a future request, because chances are high that a future request will be served by a different process
->* PHP processes are already stateless and shared-nothing, although sometimes we tend to use the built-in file storage for sessions, and this is not advisable on a cloud platform.
+> A twelve-factor app never assumes that anything cached in memory or on disk will be available on a future request, because chances are high that a future request will be served by a different process
 
-We can avoid this pitfall by session handlers:
+> PHP processes are already stateless and shared-nothing, although sometimes we tend to use the built-in file storage for sessions, and this is not advisable on a cloud platform.
+
+> We can avoid this pitfall by session handlers:
+
+![Context Diagram](related_files/image/session config.JPG)
 
 
 **7. Port binding**
@@ -126,11 +130,11 @@ It is still preferable to use a native language based web library such as jetty 
 Docker itself takes care of the port binding by use of the -p option on the command line. It’s useful to register the port and host IP to somewhere ( etcd ) to allow for loadbalancers and other services to easily locate your application.
 
 **8. Concurrency**
->They should rely on the operating system's process manager (such as systemd) to manage output streams, respond to crashed processes, and handle user initiated restarts and shutdowns.
+> They should rely on the operating system's process manager (such as systemd) to manage output streams, respond to crashed processes, and handle user initiated restarts and shutdowns.
 
 > This makes adding more concurrency a simple and reliable operation.
 
->* Scale out via the process model
+> * Scale out via the process model
 
 Similar to factor #7, the dependency from a web server makes PHP different. However, every request/response is handled by its own process so we can safely assume that PHP uses the process model.
 
@@ -147,8 +151,8 @@ Similar to factor #7, the dependency from a web server makes PHP different. Howe
 
 
 **10. Dev/prod parity**
->"Keep all deploys similar as you can"
->It helps to minimize the gap in time, employee, tool, and deploys (between development and production).
+> "Keep all deploys similar as you can"
+> It helps to minimize the gap in time, employee, tool, and deploys (between development and production).
 
 
 **11. Logs**
