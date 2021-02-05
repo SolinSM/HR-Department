@@ -46,7 +46,7 @@ The techniques used to develop the API are Codeigniter framework using PHP scrip
 | All Employee        |   /GET        | /employee/show            |
 
 ## Context Diagram
-![Context Diagram](context_diagram.png)
+![Context Diagram](related_files/image/context_diagram.png)
 
 
 ## 12-Factor:
@@ -81,8 +81,7 @@ With the new version of the web we will be working on using
 >* Here we’re talking about databases (MySQL), queue services, SMTP servers and caching systems. In some cases, even the filesystem should be considered a backing service, for example when running on Heroku, where the local filesystem is reset at each deployment.
 
 Just like factor #3, this is more a design task than a technical limit. We need to design our application in a way that both local and remote resources are treated equal and can be swappable.
-![connication](conn.png)
-
+![connication](related_files/image/conn.PNG)
 
 
 
@@ -101,26 +100,41 @@ Takes the build and combines it with the current configuration. In a purely dock
 >* Run
 Runs the application by launching a set of the app’s processes against a selected release. In a docker based system this is simply the $ docker run command which can be called via a deploy script, or a init script (systemd/runit)
 
+
 **6. Processes**
->Twelve-factor processes are stateless and share-nothing. Any data that needs to persist must be stored in a stateful backing service, typically a database.
+> Twelve-factor processes are stateless and share-nothing. Any data that needs to persist must be stored in a stateful backing service, typically a database.
 
->A twelve-factor app never assumes that anything cached in memory or on disk will be available on a future request, because chances are high that a future request will be served by a different process
->* PHP processes are already stateless and shared-nothing, although sometimes we tend to use the built-in file storage for sessions, and this is not advisable on a cloud platform.
+> A twelve-factor app never assumes that anything cached in memory or on disk will be available on a future request, because chances are high that a future request will be served by a different process
 
-We can avoid this pitfall by session handlers:
+> PHP processes are already stateless and shared-nothing, although sometimes we tend to use the built-in file storage for sessions, and this is not advisable on a cloud platform.
+
+> We can avoid this pitfall by session handlers:
+![Session Config](related_files/image/session_config.JPG)
 
 
 **7. Port binding**
- >IP sockets (especially TCP/IP sockets) are a mechanism allowing communication between processes over the network. In some cases, you can use TCP/IP sockets to talk with >processes running on the same computer (by using the loopback interface, a.k.a. 127.0.0.1).
+ > IP sockets (especially TCP/IP sockets) are a mechanism allowing communication between processes over the network. In some cases, you can use TCP/IP sockets to talk with 
+ > processes running on the same computer (by using the loopback interface, a.k.a. 127.0.0.1).
 
- >A Unix socket is an inter-process communication mechanism that allows bidirectional data exchange between processes running on the same machine
+ > A Unix socket is an inter-process communication mechanism that allows bidirectional data exchange between processes running on the same machine
  > App exposing 80 and 443 port and the Default dev port is 8181
- 
+ > Well, this is a bit tricky because PHP has been designed to use a web server. Some providers, like Heroku, address the issue by embedding the web server into the application as a dependency, through their PHP Buildpack that runs Apache or Nginx and we are using both in foreground mode.
+>* Export services via port binding
+
+Your application should appear to be completely self contained and not require runtime injection of a webserver. Thankfully this is pretty easy to fake in a docker container as any extra processes are isolated in the container and effectively invisible to the outside.
+
+It is still preferable to use a native language based web library such as jetty (java) or flask (python) but for languages like PHP using apache or nginx is ok.
+
+Docker itself takes care of the port binding by use of the -p option on the command line. It’s useful to register the port and host IP to somewhere ( etcd ) to allow for loadbalancers and other services to easily locate your application.
 
 **8. Concurrency**
->They should rely on the operating system's process manager (such as systemd) to manage output streams, respond to crashed processes, and handle user initiated restarts and shutdowns.
+> They should rely on the operating system's process manager (such as systemd) to manage output streams, respond to crashed processes, and handle user initiated restarts and shutdowns.
 
 > This makes adding more concurrency a simple and reliable operation.
+
+> * Scale out via the process model
+
+Similar to factor #7, the dependency from a web server makes PHP different. However, every request/response is handled by its own process so we can safely assume that PHP uses the process model.
 
 
 **9. Disposability**
@@ -135,8 +149,8 @@ We can avoid this pitfall by session handlers:
 
 
 **10. Dev/prod parity**
->"Keep all deploys similar as you can"
->It helps to minimize the gap in time, employee, tool, and deploys (between development and production).
+> "Keep all deploys similar as you can"
+> It helps to minimize the gap in time, employee, tool, and deploys (between development and production).
 
 
 **11. Logs**
