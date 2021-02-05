@@ -33,7 +33,8 @@ The techniques used to develop the API are Codeigniter framework using PHP scrip
 3. Search For Employee service
 4. Add New Employee service
 5. Edit employee Information service
-6. Delete Employee service
+6. Delete Employee service            
+
 
 ## APIs
 | Service             | Method        | Link                      |
@@ -44,6 +45,8 @@ The techniques used to develop the API are Codeigniter framework using PHP scrip
 | Search for Employee |   /POST       | /employee/search          |
 | Delete Employee     |   /POST       | /employee/delete          |
 | All Employee        |   /GET        | /employee/show            |
+
+![Postman](related_files/image/postman.JPG) 
 
 ## Context Diagram
 ![Context Diagram](related_files/image/context_diagram.png)
@@ -68,23 +71,29 @@ With the new version of the web we will be working on using
 
 
 **3. Config**
->* Explicitly declare and isolate dependencies
->* We got this too, we have Composer for PHP dependencies.
->* In PHP you can use composer, which basically allows you to create a list of dependencies that needs to be downloaded and installed during the deployment of the application. So, we create composer.json for codeigniter and file docker (DockerFile) which used to help and applied docker commands. 
->* In codeigniter there is a files for config of DB, connect to host, and routes.
+> "Explicitly declare and isolate dependencies"
 
+> We got this too, we have Composer for PHP dependencies.
 
-**4. Backing services**
->* We create 6 services as shown in the previous topic and it is APIs. 
->* Also we add some dependencies with is as backig services to the docker.
->* As example of third parity (adding some commands and files to Codeigniter project).
->* Here we’re talking about databases (MySQL), queue services, SMTP servers and caching systems. In some cases, even the filesystem should be considered a backing service, for example when running on Heroku, where the local filesystem is reset at each deployment.
+> In PHP you can use composer, which basically allows you to create a list of dependencies that needs to be downloaded and installed during the deployment of the application. So, we create `composer.json` for codeigniter and file docker `DockerFile` which used to help and applied docker commands. 
 
-Just like factor #3, this is more a design task than a technical limit. We need to design our application in a way that both local and remote resources are treated equal and can be swappable.
+> In codeigniter there is a files for config of DB, connect to host, and routes. And to deal with, we used `.env file`
+
+> For **pure php** you can use `getenv function` as image:
 ![connication](related_files/image/conn.PNG)
 
 
+**4. Backing services**
+> We create 6 services as shown in the previous topic and it is APIs. Also we add some dependencies with is as backig services to the docker.
 
+> As example of third parity (adding some commands and files to Codeigniter project).
+
+> Here we’re talking about databases (MySQL), queue services, SMTP servers and caching systems. In some cases, even the filesystem should be considered a backing service, for example when running on Heroku, where the local filesystem is reset at each deployment.
+
+> Just like factor #3, this is more a design task than a technical limit. We need to design our application in a way that both local and remote resources are treated equal and can be swappable.
+
+> Example for service:
+![Show List Employees and details](related_files/image/service1.png)
 
 **5. Build, release, Run**
 >Deployment tools typically offer release management tools, most notably the ability to roll back to a previous release.
@@ -106,9 +115,7 @@ Runs the application by launching a set of the app’s processes against a selec
 
 > A twelve-factor app never assumes that anything cached in memory or on disk will be available on a future request, because chances are high that a future request will be served by a different process
 
-> PHP processes are already stateless and shared-nothing, although sometimes we tend to use the built-in file storage for sessions, and this is not advisable on a cloud platform.
-
-> We can avoid this pitfall by session handlers:
+> PHP processes are already stateless and shared-nothing, although sometimes we tend to use the built-in file storage for sessions, and this is not advisable on a cloud platform. We can avoid this pitfall by session handlers:
 ![Session Config](related_files/image/session_config.JPG)
 
 
