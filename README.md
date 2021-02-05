@@ -81,7 +81,7 @@ With the new version of the web we will be working on using
 >* Here we’re talking about databases (MySQL), queue services, SMTP servers and caching systems. In some cases, even the filesystem should be considered a backing service, for example when running on Heroku, where the local filesystem is reset at each deployment.
 
 Just like factor #3, this is more a design task than a technical limit. We need to design our application in a way that both local and remote resources are treated equal and can be swappable.
-![connication](related_files/image/conn.png)
+![connication](related_files/image/conn.PNG)
 
 
 
