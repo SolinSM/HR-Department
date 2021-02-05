@@ -71,13 +71,13 @@ With the new version of the web we will be working on using
 
 
 **3. Config**
-> Explicitly declare and isolate dependencies
+> "Explicitly declare and isolate dependencies"
 
 > We got this too, we have Composer for PHP dependencies.
 
 > In PHP you can use composer, which basically allows you to create a list of dependencies that needs to be downloaded and installed during the deployment of the application. So, we create `composer.json` for codeigniter and file docker `DockerFile` which used to help and applied docker commands. 
->* In codeigniter there is a files for config of DB, connect to host, and routes.
-![connication](related_files/image/conn.PNG)
+
+> In codeigniter there is a files for config of DB, connect to host, and routes. And to deal with, we used `.env file`
 
 >* For **pure php** you can use `getenv function` as image:
 ![connication](related_files/image/conn.PNG)
@@ -89,6 +89,7 @@ With the new version of the web we will be working on using
 > As example of third parity (adding some commands and files to Codeigniter project).
 
 > Here we’re talking about databases (MySQL), queue services, SMTP servers and caching systems. In some cases, even the filesystem should be considered a backing service, for example when running on Heroku, where the local filesystem is reset at each deployment.
+
 > Just like factor #3, this is more a design task than a technical limit. We need to design our application in a way that both local and remote resources are treated equal and can be swappable.
 
 
