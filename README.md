@@ -56,9 +56,9 @@ The techniques used to develop the API are Codeigniter framework using PHP scrip
 
 
 **2. Dependencies**
->*Explicitly declare and isolate dependencies
->*We got this too, we have Composer for PHP dependencies.
-In PHP you can use composer, which basically allows you to create a list of dependencies that needs to be downloaded and installed during the deployment of the application.
+>* Explicitly declare and isolate dependencies
+>* We got this too, we have Composer for PHP dependencies.
+>* In PHP you can use composer, which basically allows you to create a list of dependencies that needs to be downloaded and installed during the deployment of the application.
 
 
 
