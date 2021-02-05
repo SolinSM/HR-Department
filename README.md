@@ -28,14 +28,13 @@ The techniques used to develop the API are Codeigniter framework using PHP scrip
 
 
 ## Our Services
-| Services                            | Postman  |
-| ----------------------------------- | :------: |
-|1. Show Employee List service
+1. Show Employee List service
 2. Show Employee Details service
 3. Search For Employee service
 4. Add New Employee service
 5. Edit employee Information service
-6. Delete Employee service            | ![Postman](related_files/image/postman.JPG) |
+6. Delete Employee service            
+
 
 ## APIs
 | Service             | Method        | Link                      |
@@ -46,6 +45,8 @@ The techniques used to develop the API are Codeigniter framework using PHP scrip
 | Search for Employee |   /POST       | /employee/search          |
 | Delete Employee     |   /POST       | /employee/delete          |
 | All Employee        |   /GET        | /employee/show            |
+
+![Postman](related_files/image/postman.JPG) 
 
 ## Context Diagram
 ![Context Diagram](related_files/image/context_diagram.png)
