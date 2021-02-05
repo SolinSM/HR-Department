@@ -21,8 +21,10 @@ The techniques used to develop the API are Codeigniter framework using PHP scrip
 | Desktop GitHub            | To help us to upload, send pull request, see any changes on the code          |
 | Docker                    | Helps to implement many factors with our project                              |
 | Docker Compose            | It is a tool for defining and running multi-container Docker applications     |
+| Composer.json             | It allows you to create a list of dependencies that needs to be downloaded and installed during the deployment of the application  |
 | Yamel                     |         |
 | Kubernetus                |         |
+
 
 
 ## Our Services
@@ -56,20 +58,20 @@ The techniques used to develop the API are Codeigniter framework using PHP scrip
 
 
 **2. Dependencies**
->* Explicitly declare and isolate dependencies
->* We got this too, we have Composer for PHP dependencies.
->* In PHP you can use composer, which basically allows you to create a list of dependencies that needs to be downloaded and installed during the deployment of the application.
->* We create composer.json for codeigniter or file docker (DockerFile).
->* Dockerfile used to help and applied docker commands 
-
-
-**3. Config**
-> In Codeigniter, the rest of the api is added as a system library.
-> There is a file named Konfig that works on the connection with the Databases, which is MySQL
+>* In Codeigniter, the REST API is added as a system library.
+>* We add Docker_php to allow php commands in docker
+>* We add Docker_phpMyAdmin for DB commands in docker
+>* We add Docker_MySQL for mySQL queries command in docker
+>* There is a file named Konfig that works on the connection with the Databases, which is MySQL
 With the new version of the web we will be working on using
 
 
 
+**3. Config**
+>* Explicitly declare and isolate dependencies
+>* We got this too, we have Composer for PHP dependencies.
+>* In PHP you can use composer, which basically allows you to create a list of dependencies that needs to be downloaded and installed during the deployment of the application. So, we create composer.json for codeigniter and file docker (DockerFile) which used to help and applied docker commands. 
+>* In codeigniter there is a files for config of DB, connect to host, and routes.
 
 
 **4. Backing services**
