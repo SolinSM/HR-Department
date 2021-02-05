@@ -56,10 +56,9 @@ The techniques used to develop the API are Codeigniter framework using PHP scrip
 
 
 **2. Dependencies**
->In Codeigniter the rest api is added as a library to the system.
->Docker_php to allow php commands in docker
->Docker_phpMyAdmin for DB commands in docker
->Docker_MySQL for mySQL queries command in docker
+>*Explicitly declare and isolate dependencies
+>*We got this too, we have Composer for PHP dependencies.
+In PHP you can use composer, which basically allows you to create a list of dependencies that needs to be downloaded and installed during the deployment of the application.
 
 
 
