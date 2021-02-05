@@ -110,8 +110,8 @@ Runs the application by launching a set of the app’s processes against a selec
 > PHP processes are already stateless and shared-nothing, although sometimes we tend to use the built-in file storage for sessions, and this is not advisable on a cloud platform.
 
 > We can avoid this pitfall by session handlers:
-
-![Session Config](related_files/image/session config.JPG)
+![Context Diagram](related_files/image/context_diagram.png)
+![Session Config](related_files/image/session_config.JPG)
 
 
 **7. Port binding**
