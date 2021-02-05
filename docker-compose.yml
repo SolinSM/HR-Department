@@ -1,6 +1,13 @@
 version: '3.1'
 
 services:
+
+  php-fpm:
+    build:
+      context: ./php-fpm
+    volumes:
+      - ./SES-HR-Department:/var/www/html
+
     web:
       build: 
        image: nginx:alpine
@@ -22,8 +29,18 @@ services:
        networks:
            - nginxphp
 
-networks:
-     nginxphp:
+
+nginx:
+    build:
+      context: ./nginx
+    ports:
+      - "8081:80"
+      - "8443:443"
+    volumes:
+      - ../src:/var/www
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/sites/:/etc/nginx/sites-available
+      - ./nginx/conf.d/:/etc/nginx/conf.d
         
         
         
