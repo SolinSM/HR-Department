@@ -51,10 +51,10 @@ The techniques used to develop the API are Codeigniter framework using PHP scrip
 
 ## 12-Factor:
 **1. Codebase**
->One codebase tracked in revision control, many deploys ✔
->We have no particular problems here, it’s just a matter of development workflow. 
->We can track our app code in Git: the master branch is deployed to production, while 
->all the development and testing is made under separate branches.
+> One codebase tracked in revision control, many deploys ✔
+> We have no particular problems here, it’s just a matter of development workflow. 
+> We can track our app code in Git: the master branch is deployed to production, while 
+> all the development and testing is made under separate branches.
 
 
 **2. Dependencies**
@@ -62,7 +62,7 @@ The techniques used to develop the API are Codeigniter framework using PHP scrip
 >* We add Docker_php to allow php commands in docker
 >* We add Docker_phpMyAdmin for DB commands in docker
 >* We add Docker_MySQL for mySQL queries command in docker
->* There is a file named Konfig that works on the connection with the Databases, which is MySQL
+>* There is a file named config that works on the connection with the Databases, which is MySQL
 With the new version of the web we will be working on using
 
 
