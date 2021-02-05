@@ -123,18 +123,20 @@ Runs the application by launching a set of the app’s processes against a selec
 
 
 **7. Port binding**
- > IP sockets (especially TCP/IP sockets) are a mechanism allowing communication between processes over the network. In some cases, you can use TCP/IP sockets to talk with 
- > processes running on the same computer (by using the loopback interface, a.k.a. 127.0.0.1).
+ > IP sockets (especially TCP/IP sockets) are a mechanism allowing communication between processes over the network. In some cases, you can use TCP/IP sockets to talk with processes running on the same computer (by using the loopback interface, a.k.a. 127.0.0.1).
 
- > A Unix socket is an inter-process communication mechanism that allows bidirectional data exchange between processes running on the same machine
- > App exposing 80 and 443 port and the Default dev port is 8181
+ > A Unix socket is an inter-process communication mechanism that allows bidirectional data exchange between processes running on the same machine App exposing 80 and 443 port and the Default dev port is 8181
+ 
  > Well, this is a bit tricky because PHP has been designed to use a web server. Some providers, like Heroku, address the issue by embedding the web server into the application as a dependency, through their PHP Buildpack that runs Apache or Nginx and we are using both in foreground mode.
 
  > Through docker command for file, we can choose or change port to any port we want.
  
- > * Export services via port binding
+ > * **Export services via port binding**
+ 
  > Your application should appear to be completely self contained and not require runtime injection of a webserver. Thankfully this is pretty easy to fake in a docker container as any extra processes are isolated in the container and effectively invisible to the outside.
+ 
  > It is still preferable to use a native language based web library such as jetty (java) or flask (python) but for languages like PHP using apache or nginx is ok.
+ 
  > Docker itself takes care of the port binding by use of the -p option on the command line. It’s useful to register the port and host IP to somewhere ( etcd ) to allow for loadbalancers and other services to easily locate your application.
 
 
@@ -151,6 +153,7 @@ Runs the application by launching a set of the app’s processes against a selec
 
 **9. Disposability**
 > By using Docker and K8s this allows the system to be fast startup & graceful shutdown. 
+
 > This mean if any container/service is not working/stoped/have errors, the K8s stoped it graceful and start another one but same to it (image) of it or we can restart it to work again. When any crash/stop happened to it, the `volumes` helped to show last stored data (that we talked about in Factor#6) to not show errors and in this time the K8s automatically solved issue as previous discuss.
 
 >  **Fast Startup:** 
