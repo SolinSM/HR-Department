@@ -111,7 +111,7 @@ Runs the application by launching a set of the app’s processes against a selec
 
 > We can avoid this pitfall by session handlers:
 
-![Context Diagram](related_files/image/session config.JPG)
+![Session Config](related_files/image/session config.JPG)
 
 
 **7. Port binding**
